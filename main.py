@@ -313,7 +313,8 @@ class Thread(QThread):
 
                 # flip image to act as "mirror"
                 image = cv2.flip(frame, 1)
-
+                camera_size = (int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)), 
+                                int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
                 if self.bg_image is not None:
                     bg_image = cv2.resize(self.bg_image, camera_size, interpolation = cv2.INTER_AREA)
                     # convert into rgb to make model work
